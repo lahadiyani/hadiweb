@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Mengupdate tampilan jumlah pengunjung
   const updateVisitorCount = () => {
-    visitorCount.textContent = `Total Visitors: ${visitors.length}`;
+    visitorCount.textContent = `Total Pengunjung: ${visitors.length}`;
   };
 
   // Mengambil data pengunjung yang sudah ada pada saat halaman dimuat
