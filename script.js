@@ -25,3 +25,39 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(error => console.log(error));
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Menggunakan LocalStorage untuk menyimpan data
+  let visitors = JSON.parse(localStorage.getItem("visitors")) || [];
+
+  const visitorCount = document.getElementById("visitor-count");
+
+  // Mendapatkan alamat IP pengunjung
+  const getIPAddress = async () => {
+    const response = await fetch("https://api64.ipify.org?format=json");
+    const data = await response.json();
+    return data.ip;
+  };
+
+  // Menambahkan alamat IP baru ke dalam array visitors jika belum ada
+  const addVisitor = async () => {
+    const ipAddress = await getIPAddress();
+    if (!visitors.includes(ipAddress)) {
+      visitors.push(ipAddress);
+      localStorage.setItem("visitors", JSON.stringify(visitors));
+      updateVisitorCount();
+    }
+  };
+
+  // Mengupdate tampilan jumlah pengunjung
+  const updateVisitorCount = () => {
+    visitorCount.textContent = `Total Visitors: ${visitors.length}`;
+  };
+
+  // Mengambil data pengunjung yang sudah ada pada saat halaman dimuat
+  updateVisitorCount();
+
+  // Menambahkan pengunjung baru saat halaman dikunjungi
+  addVisitor();
+});
+                                 
