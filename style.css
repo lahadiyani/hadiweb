@@ -24,7 +24,7 @@ body {
   width: 325px;
   height: 80px;
   position: fixed;
-  z-index: 99999999;
+  z-index: 99999;
 }
 
 .text-logo {
@@ -62,7 +62,7 @@ body {
   width: 250px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 999999;
+  z-index: 9999;
 }
 
 .menu-content.show-menu a {
@@ -130,6 +130,12 @@ body {
   font-size: 15px;
 }
 
+.repo-item > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
 
 .list-temp {
   position: absolute;
@@ -146,22 +152,79 @@ body {
   margin-top: 10px;
 }
 
+.Vist {
+  margin-left: 25%;
+  margin-bottom: 5px;
+}
+
 /* Footer styling */
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 }
 
+.copyright > a {
+  text-decoration: none;
+  color: #fff;
+}
+
 /* Media query for mobile view */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    width: 97%;
+    position: relative;
   }
   
-  .navbar a {
-    margin-bottom: 10px;
+  .hamburger-menu {
+    display: none;
+  }
+  
+  .menu-content {
+    display: flex;
+    vertical-align: middle;
+    position: absolute;
+    top: 10px;
+    left: 700px;
+    gap: 15px;
+  }
+  
+  .menu-content a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .header {
+    width: 50%;
+    height: 180px;
+    padding: 5px;
+  }
+  
+  .main {
+    position: absolute;
+    margin-left: 55%;
+    margin-top: 50px;
+    z-index: 99;
+  }
+  
+  .list-tools {
+    font-size: 20px;
+  }
+  
+  .line {
+    
+  }
+  
+  .Vist {
+    position: absolute;
+  }
+  
+  .footer {
+    margin-top: 380%;
   }
 }
